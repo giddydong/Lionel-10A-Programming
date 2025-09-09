@@ -1,44 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Programming Journey</title>
-    <!-- No CSS needed for this exercise, we are focusing on structure! -->
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-
-    <!-- TASK 1 (mandatory): Analyze the layout below. For each section, decide which semantic tag (<header>, <main>, <section>, <footer>, etc.) is most appropriate and explain your reasoning in a comment above each tag you use. Do NOT just replace tags—think about the purpose of each part. Do not remove the divs until you have justified your choices. -->
-    
-    <header>
-        <h1>My Programming Journey</h1>
-    </header>
-    <!-- The header is the content which the reader will first see, so it is appropriate to use the <header> tag here. -->
-    <main>
+    <div class="container" id="Division">
+        <h1 id="heading">Hello, World!</h1>
+        <p>Click the button to see some JavaScript magic.</p>
+        <button id="button" onmouseover="changeHeading()" onmouseout="resetHeading()">Click Me</button>
+         <h1 id="counterDisplay">Count: 0</h1>
+        <button id="clickButton">Click Me</button>
+    </div>
+    <script>
+        function changeHeading() {
+        document.getElementById("heading").textContent = "Hello, World!";
+        }
+        function resetHeading() {
+            document.getElementById("heading").textContent = "Bounjour!";
+        }
+        let count= 0;
+        const counterDisplay = document.getElementById('counterDisplay');
+        const clickButton = document.getElementById('clickButton');
         
-        <article>
-            <h2>What is Semantic HTML?</h2>
-            <p>It's a way of writing HTML that gives meaning to the web page rather than just presentation.</p>
-        </article>
-        <!-- The article tag is used here as it represents the main question and answer, in this case paragraph and h2, so it is appropiate to use it here.-->
-        <!-- TASK 3: Add a second blog post, using the correct semantic tag(s). For each semantic tag you use, add a comment explaining your choice. Also, use aria-label attributes where appropriate for accessibility. -->
-        <!-- 
-        <h2>Why is it Important?</h2>
-        <p></p>
-        -->
+        clickButton.addEventListener('click',function () {
+        count++;
+        counterDisplay.textContent = 'Count: ' + count;
+        });
+        const button =  document.getElementById("button")
+        const box =  document.getElementById("Division")
 
-    </main>
-    <!-- The main tag is used here because it groups the main content together, which is the main question and answer aka. the purpose of this website. -->
-    <!-- TASK 2: Identify information that is related but not part of the main content. Add a sidebar using the correct semantic tag, and explain in a comment why you chose that tag and what content belongs there. -->
-     <aside>
-        <h2>Related Topics</h2>
-        <ul>
-            <li>Section Tag</li>
-            <li> I replaced section with article as article is more appropiate, the main content has a question and answer, therefore section isnt used here</li>
-     </aside>
-    <footer>
-        <p>Made with HTML</p>
-    </footer>
-    <!-- The footer tag is used in this part to indicate the end of the page, so it is appropriate to use it in here as it is the end:)-->
+        button.addEventListener("click" ,function () {
+        const color = '#' + Math.floor(Math.random()*16777215).toString(16);
+        box.style.background = color;
+        } );
+    </script>
 </body>
+
 </html>
